@@ -1,0 +1,73 @@
+<nav class="navbar fixed-top navbar-expand-lg bg-dark navbar-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">
+          <img src="https://assets.ajio.com/static/img/Ajio-Logo.svg" width="70px" height="40px" alt="AJIO"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggler="collapse" data-bs-target="#navbarText">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item mt-2">
+                  <a class="nav-link Active" aria-current="page" routerLink="">Home</a>
+              </li>
+              <li class="nav-item mt-2">
+                  <a class="nav-link" routerLink="Men" *ngIf="auth">Men</a>
+              </li>
+              <li class="nav-item mt-2">
+                  <a class="nav-link" routerLink="Women" *ngIf="auth">Women</a>
+              </li>
+              <li class="nav-item mt-2">
+                  <a class="nav-link" routerLink="kids" *ngIf="auth">Kids</a>
+              </li>
+              <li class="nav-item mt-2">
+                  <a class="nav-link" routerLink="Addproducts" *ngIf="auth">Add Products</a>
+              </li>
+              <li class="nav-item mt-2">
+                  <a class="nav-link" routerLink="login" *ngIf="!auth">Login</a>
+              </li>
+              <li class="nav-item mt-2">
+                  <a class="nav-link" routerLink="contactus">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link">
+                    <app-search (searchtextchanged)="onsearchtextenter($event)"></app-search>
+                  </a>
+              </li>
+              <li class="nav-item mt-1" *ngIf="auth">
+                  <a class="nav-link" routerLink="cartitem"><img src="./assets/bag.png" alt="cart" width="20px"
+                          height="23px" /></a>
+              </li>
+              <li class="nav-item dropdown mt-1" *ngIf="auth">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="../assets/user.png" alt="user profile" width="20px" height="20px">
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
+                      aria-labelledby="navbarScrollingDropdown">
+                      <li>
+                        <a class="dropdown-item"  data-bs-toggle="offcanvas" href="#offcanvasLeft" aria-controls="offcanvasLeft" *ngIf="auth">my profile</a>
+                    </li>
+                      <li>
+                          <a class="dropdown-item btn" type="submit" routerLink="login" *ngIf="auth">Logout</a>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeft">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasLeft">Profile</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <img src="../assets/user.png" alt="user profile" width="40px" height="40px">
+        <p>Name</p>
+        <p>Email</p>
+        <p>contact number</p>
+        <p>manage your account</p>
+    </div>
+  </div>
+<br><br><br>
